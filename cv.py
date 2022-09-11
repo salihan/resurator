@@ -164,26 +164,33 @@ if __name__ == '__main__':
 
     # References
     document.add_heading('References')
-    ref1 = ['Higher College of Technology Dubai\n', 'Phone: +9712 2064772\n', 'Email: aamin@hct.ac.ae\n']
-    ref2 = ['Universiti Kebangsaan Malaysia\n', 'Phone: +6012 392 3755\n', 'Email: nazlina.ali@ukm.edu.my\n']
+    # ref1 = ['Higher College of Technology Dubai\n', 'Phone: +9712 2064772\n', 'Email: aamin@hct.ac.ae\n']
+    # ref2 = ['Universiti Kebangsaan Malaysia\n', 'Phone: +6012 392 3755\n', 'Email: nazlina.ali@ukm.edu.my\n']
     table = document.add_table(rows=1, cols=2)
-    # table.style.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY
-    # table.style.paragraph_format.space_before = None
-    # table.style.paragraph_format.space_after = None
-    # table.style.paragraph_format.line_spacing = Pt(0)
+
     # commented above feature because it's not working. Will solve it later insyaallah
-    tbl_heading = table.rows[0].cells
-    tbl_heading[0].text = 'Dr. Anang Hudaya Muhamad Amin'
-    tbl_heading[1].text = 'Dr. Nazlena Mohamad Ali'
+    # tbl_heading = table.rows[0].cells
+    # tbl_heading[0].text = 'Dr. Anang Hudaya Muhamad Amin'
+    # tbl_heading[1].text = 'Dr. Nazlena Mohamad Ali'
     row_cells = table.add_row().cells
-    row_cells[0].text = ' '.join(ref1[0])
-    row_cells[1].text = ' '.join(ref2[0])
+    # row_cells[0].text = ' '.join(ref1[0])
+    # row_cells[1].text = ' '.join(ref2[0])
     # row_cells[1].text = ' satu\ndua\n'
-    row_cells = table.add_row().cells
-    row_cells[0].text = ' '.join(ref1[1:])
-    row_cells[1].text = ' '.join(ref2[1:])
-    make_rows_bold(table.rows[0])
-    make_rows_italic(table.rows[1])
+
+    row_cells[0].paragraphs[0].add_run('Dr. Anang Hudaya Muhamad Amin').bold = True
+    row_cells[0].paragraphs[0].add_run('\nHigher College of Technology Dubai').italic = True
+    row_cells[0].paragraphs[0].add_run('\nPhone: +9712 2064772')
+    row_cells[0].paragraphs[0].add_run('\nEmail: aamin@hct.ac.ae')
+
+    row_cells[1].paragraphs[0].add_run('Dr. Nazlena Mohamad Ali').bold = True
+    row_cells[1].paragraphs[0].add_run('\nHigher College of Technology Dubai').italic = True
+    row_cells[1].paragraphs[0].add_run('\nPhone: +6012 392 3755')
+    row_cells[1].paragraphs[0].add_run('\nEmail: nazlina.ali@ukm.edu.my')
+    # row_cells = table.add_row().cells
+    # row_cells[0].text = ' '.join(ref1[1:])
+    # row_cells[1].text = ' '.join(ref2[1:])
+    # make_rows_bold(table.rows[0])
+    # make_rows_italic(table.rows[1])
 
 
     # some records in a table
